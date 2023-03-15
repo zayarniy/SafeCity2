@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: "Assets/Scenes/\u0420\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0438.unity"
     guid: e4d3ac727b9a5e043ac8d7859cc2bddc
   - enabled: 1
+    path: Assets/Scenes/ResultsDie.unity
+    guid: f52bcdeea98cdf94ea42506357924690
+  - enabled: 1
     path: Assets/Scenes/ClashSimulator.unity
     guid: 8abbd8ffefeb70445b42f221aacbd888
   - enabled: 0

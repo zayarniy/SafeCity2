@@ -15,6 +15,6 @@ public class DistanceToFinish : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textFinish.text = "Distance:"+Vector3.Distance(this.transform.position, Finish.position).ToString("F2");
+        textFinish.text = $"Distance:{Vector3.Distance(this.transform.position, Finish.position).ToString("F0")}";
     }
 }

@@ -31,7 +31,7 @@ public class DisableObject : MonoBehaviour
         for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
             //c.a = alpha;
-            print(alpha);
+           // print(alpha);
             canvasGroup.alpha = alpha;
             
             yield return new WaitForSeconds(.1f);
@@ -40,7 +40,7 @@ public class DisableObject : MonoBehaviour
     }
     public void Disable()
     {
-        print("Disable");
+        //print("Disable");
 
         Invoke("StartFade", delayBeforeFade);
         //this.enabled = false;    

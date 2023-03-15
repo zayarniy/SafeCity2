@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
 
     public GameObject teleportTo;
+    public static event System.Action<int> LivesUpdate;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,20 @@ public class Teleport : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print("Trigger enter");
-        other.transform.position=teleportTo.transform.position;
+        if (other.tag == "Player")
+        {
+            if (this.tag == "death")
+            {
+                LivesUpdate?.Invoke(-1);
+                if (GameManager.lifes <= -100)
+                {
+                    SceneManager.LoadScene(6);
+                    GameManager.StartGame = true;
+
+                }
+            }
+            other.transform.position = teleportTo.transform.position;
+        }
 
     }
 

@@ -23,6 +23,7 @@ public class Finish : MonoBehaviour
         {
             PlayerPrefs.SetString("Results",  GameManager.score.ToString());
             SceneManager.LoadScene("Results");
+            GameManager.StartGame = true;
         }
     }
 }

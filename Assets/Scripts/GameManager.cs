@@ -8,8 +8,13 @@ using System.Linq;
 public class GameManager : MonoBehaviour
 {
     public static int score = 0;
+    public static int lifes = 3;
+    static bool NeedInit = true;
+    public static bool StartGame = true;
+    
 
-    public TMPro.TextMeshProUGUI textScore;
+    static TMPro.TextMeshProUGUI textScore;
+    static TMPro.TextMeshProUGUI textLifes;
 
     //public Canvas scoreCanvas;
 
@@ -24,16 +29,38 @@ public class GameManager : MonoBehaviour
             DestroyImmediate(instance);
             return;
         }
-        instance= this;
-        SimpleCollectibleScript.ScoreUpdate += ScoreUpdate;
-        textScore = GameObject.FindObjectsOfType<TextMeshProUGUI>().FirstOrDefault(obj => obj.name == "Score");
+        else
+        {
+            instance = this;
+            if (StartGame)
+            {
+                lifes = 3;
+                score = 0;
+                StartGame = false;
+                {
+                    SimpleCollectibleScript.ScoreUpdate += ScoreUpdate;
+                    Teleport.LivesUpdate += LifesUpdate;
+                    NeedInit = false;
+                }
 
-        print(textScore);
+            }
+            //if (NeedInit)
+        }
+        //print(textScore);
     }
 
+    
     private void Start()
     {
-        textScore.text = score.ToString();        
+        //SimpleCollectibleScript.ScoreUpdate += ScoreUpdate;
+        //Teleport.LivesUpdate += LifesUpdate;
+        print(SceneManager.GetActiveScene().name+" loaded");
+        textScore = GameObject.FindObjectsOfType<TextMeshProUGUI>().FirstOrDefault(obj => obj.name == "Score");
+        //textScore.text = $"Score:{score.ToString("G3")}";
+        textLifes = GameObject.FindObjectsOfType<TextMeshProUGUI>().FirstOrDefault(obj => obj.name == "Lifes");
+        ScoreUpdate(0);
+        LifesUpdate(0);
+//        textLifes.text = $"Lifes:{lifes}";
     }
 
 
@@ -41,32 +68,45 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //AudioListener.volume += Input.mouseScrollDelta.y;
     }
 
-    public void ScoreUpdate(int score=1)
+    public void Mute()
     {
-        GameManager.score += score;
-        print(System.DateTime.Now);
+        AudioListener.volume = 0;
+    }
+
+    public void UnMute()
+    {
+        AudioListener.volume = 1;
+    }
+    public void ScoreUpdate(int _score=1)
+    {
+        GameManager.score += _score;
+        //print(System.DateTime.Now);
         //print(textScore);
-        textScore.text = GameManager.score.ToString();
+        if (score >= 50)
+            textScore.color = Color.green;
+        else
+            textScore.color = Color.white;
+        textScore.text = $"Score:{score}";
         //canvas.enabled = false;
     }
 
+    public void LifesUpdate(int _life)
+    {
+        GameManager.lifes += _life;
+        textLifes.text = $"Lifes:{GameManager.lifes}";
+    }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-
 
     public void ScoreScene()
     {
         SceneManager.LoadScene("Results");
         PlayerPrefs.SetString("Results", string.Join("\n", GameManager.score));
     }
-
-
-
-
 
 }

@@ -155,6 +155,7 @@ public class VideoController2 : MonoBehaviour
         video.playbackSpeed = 1;
         Debug.Log("video url:" + video.url);
         video.Prepare();
+        slider.value = video.GetDirectAudioVolume(0);
     }
 
     // Update is called once per frame
@@ -229,6 +230,14 @@ public class VideoController2 : MonoBehaviour
         if (!isPrepare) return;
         nTime = Mathf.Clamp(nTime, 0, 1);
         video.time = nTime * Duration;
+    }
+
+    public void Volume(float volume)
+    {
+        if (!video.canSetDirectAudioVolume) return;
+        if (!isPrepare) return;
+        volume = Mathf.Clamp(volume, 0, 1);
+        video.SetDirectAudioVolume(0,volume);
     }
 
     public void IncrementPlaybackSpeed()

@@ -15,7 +15,7 @@ public class Pause : MonoBehaviour
 
     private void Awake()
     {
-        pause = false;
+        pause = true;
         Time.timeScale = 1;
 
     }
