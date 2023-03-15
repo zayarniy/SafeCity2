@@ -15,7 +15,7 @@ public class AnimationControl : MonoBehaviour
 
     private void OnMouseDown()
     {
-        print("Animation control"+animator.isActiveAndEnabled);
+        //print("Animation control"+animator.isActiveAndEnabled);
         
         if (animator != null)
             animator.enabled=!animator.enabled;

@@ -66,14 +66,13 @@ public class SimpleCollectibleScript : MonoBehaviour {
 		if (CollectibleType == CollectibleTypes.Type2) {
 
 			//Add in code here;
-
-			Debug.Log ("Do NoType Command");
+			ScoreUpdate(1);
 		}
 		if (CollectibleType == CollectibleTypes.Type3) {
-
+			ScoreUpdate(5);
 			//Add in code here;
 
-			Debug.Log ("Do NoType Command");
+			//Debug.Log ("Do NoType Command");
 		}
 		if (CollectibleType == CollectibleTypes.Type4) {
 

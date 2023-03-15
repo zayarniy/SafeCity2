@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Pause : MonoBehaviour
 {
@@ -28,6 +29,13 @@ public class Pause : MonoBehaviour
             pause = !pause;
             menu.SetActive(pause);
         }
+        if (Input.GetKeyUp(KeyCode.S) && Input.GetButton("Fire1"))
+        {
+            var videoplayers = GameObject.FindObjectsOfType<VideoPlayer>();
+            foreach (var videoplayer in videoplayers)
+                videoplayer.Stop();
+        }
+
 
     }
 }

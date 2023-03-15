@@ -26,8 +26,14 @@ public class GameManager : MonoBehaviour
         }
         instance= this;
         SimpleCollectibleScript.ScoreUpdate += ScoreUpdate;
-        textScore= GameObject.FindObjectsOfType<TextMeshProUGUI>().FirstOrDefault(obj=>obj.name=="Score");
+        textScore = GameObject.FindObjectsOfType<TextMeshProUGUI>().FirstOrDefault(obj => obj.name == "Score");
+
         print(textScore);
+    }
+
+    private void Start()
+    {
+        textScore.text = score.ToString();        
     }
 
 
