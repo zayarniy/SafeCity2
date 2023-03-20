@@ -16,9 +16,10 @@ public class AnimationControl : MonoBehaviour
     private void OnMouseDown()
     {
         //print("Animation control"+animator.isActiveAndEnabled);
-        
+        print(gameObject.name);
         if (animator != null)
-            animator.enabled=!animator.enabled;
+            if  (gameObject.name!="Slider")
+                animator.enabled=!animator.enabled;
     }
     // Update is called once per frame
     void Update()
