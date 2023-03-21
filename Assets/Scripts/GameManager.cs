@@ -4,11 +4,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
     public static int score = 0;
-    public static int lifes = 3;
+    public static int lifes = 10000;
     static bool NeedInit = true;
     public static bool StartGame = true;
     
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             if (StartGame)
             {
-                lifes = 3;
+                lifes = 10000;
                 score = 0;
                 StartGame = false;
                 {
@@ -49,6 +50,13 @@ public class GameManager : MonoBehaviour
         //print(textScore);
     }
 
+
+    static public void StopAllVideo()
+    {
+        var videoplayers = GameObject.FindObjectsOfType<VideoPlayer>();
+        foreach (var videoplayer in videoplayers)
+            videoplayer.Stop();
+    }
     
     private void Start()
     {

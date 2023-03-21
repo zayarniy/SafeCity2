@@ -28,13 +28,14 @@ public class Teleport : MonoBehaviour
             if (this.tag == "death")
             {
                 LivesUpdate?.Invoke(-1);
-                if (GameManager.lifes <= -100)
+                if (GameManager.lifes <=0)
                 {
                     SceneManager.LoadScene(6);
                     GameManager.StartGame = true;
 
                 }
             }
+            GameManager.StopAllVideo();
             other.transform.position = teleportTo.transform.position;
         }
 

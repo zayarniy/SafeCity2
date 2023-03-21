@@ -187,9 +187,7 @@ public class VideoController2 : MonoBehaviour
 
     public void PlayVideo()
     {
-        var videoplayers = GameObject.FindObjectsOfType<VideoPlayer>();
-        foreach (var videoplayer in videoplayers)
-            videoplayer.Stop();
+        GameManager.StopAllVideo();
         LoadVideo(video.url);
         Debug.Log("Play video");
         Debug.Log("video url:" + video.url);

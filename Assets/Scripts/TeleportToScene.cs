@@ -7,6 +7,7 @@ public class TeleportToScene : MonoBehaviour
 {
     public int sceneTeleport;
     public bool isRemoveTeleportAfter=false;
+    public LoadSceneMode loadSceneMode;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,8 @@ public class TeleportToScene : MonoBehaviour
         if (other.gameObject.tag =="Player")
         {
             if (isRemoveTeleportAfter) GameObject.Destroy(this.gameObject);
-            SceneManager.LoadScene(sceneTeleport);
+            //SceneManager.LoadScene(sceneTeleport);
+            SceneManager.LoadScene(sceneTeleport, loadSceneMode);
         }
     }
 }

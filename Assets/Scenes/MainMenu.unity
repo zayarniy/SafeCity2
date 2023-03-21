@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: start
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 519381469122680406, guid: b4a26a18e2e41ee4999f2dac291f8211, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 519381469122680408, guid: b4a26a18e2e41ee4999f2dac291f8211, type: 3}
       propertyPath: m_VideoClip
       value: 
@@ -221,6 +225,10 @@ PrefabInstance:
     - target: {fileID: 519381469122680408, guid: b4a26a18e2e41ee4999f2dac291f8211, type: 3}
       propertyPath: m_DirectAudioVolumes.Array.data[0]
       value: 0.507
+      objectReference: {fileID: 0}
+    - target: {fileID: 519381469122680408, guid: b4a26a18e2e41ee4999f2dac291f8211, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 519381469122680409, guid: b4a26a18e2e41ee4999f2dac291f8211, type: 3}
       propertyPath: m_Enabled
